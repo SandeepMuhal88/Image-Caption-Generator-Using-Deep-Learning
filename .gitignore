@@ -1,2 +1,4 @@
-.venv
-.env
+.image
+__MACOSX
+Flicker8k_Dataset
+Datasets
