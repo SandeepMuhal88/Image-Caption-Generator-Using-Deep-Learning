@@ -30,3 +30,22 @@ You already chose Flickr8k – perfect for quick iterations.
 ✅ Captions file: https://github.com/jbrownlee/Datasets/releases/download/Flickr8k/Flickr8k_text.zip
 
 ```
+
+# 1) go to your project directory (or create it)
+mkdir -p ~/projects/image-captioner && cd ~/projects/image-captioner
+
+# 2) create a virtual env in the project (named .venv)
+python3.11 -m venv .venv        # or: python3.10 -m venv .venv
+source .venv/bin/activate
+
+# 3) upgrade pip
+pip install --upgrade pip
+
+# 4) install TensorFlow with GPU (pulls compatible CUDA/cuDNN automatically)
+pip install "tensorflow[and-cuda]"
+
+# 5) verify GPU is visible
+python -c "import tensorflow as tf; print(tf.__version__); print(tf.config.list_physical_devices('GPU'))"
+
+# 6) (optional) freeze deps
+pip freeze > requirements.txt
