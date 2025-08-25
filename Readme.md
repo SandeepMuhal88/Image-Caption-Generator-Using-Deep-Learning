@@ -30,22 +30,46 @@ You already chose Flickr8k – perfect for quick iterations.
 ✅ Captions file: https://github.com/jbrownlee/Datasets/releases/download/Flickr8k/Flickr8k_text.zip
 
 ```
+### Setup the Tensorflow for GPU 
+Now i move to the tensorflow because i wamt learn in depth and one think that deployment is very good thats why i am choose the tensorflowSS
 
-# 1) go to your project directory (or create it)
-mkdir -p ~/projects/image-captioner && cd ~/projects/image-captioner
+### How to setup 
+first we need the Tesorflow version that support cuda
+### 1. Prerequisites
 
-# 2) create a virtual env in the project (named .venv)
-python3.11 -m venv .venv        # or: python3.10 -m venv .venv
-source .venv/bin/activate
+OS: Windows 10/11 OR Linux (Ubuntu recommended if dual boot/WLS2).
 
-# 3) upgrade pip
-pip install --upgrade pip
+GPU: NVIDIA RTX 4060 (Ada Lovelace, CUDA Compute Capability 8.9).
 
-# 4) install TensorFlow with GPU (pulls compatible CUDA/cuDNN automatically)
-pip install "tensorflow[and-cuda]"
+Python: 3.10 or 3.11 (TensorFlow support is picky).
 
-# 5) verify GPU is visible
-python -c "import tensorflow as tf; print(tf.__version__); print(tf.config.list_physical_devices('GPU'))"
+Conda/venv: Highly recommended (to avoid conflicts).
 
-# 6) (optional) freeze deps
-pip freeze > requirements.txt
+### 2. Install NVIDIA Drivers
+
+Update your NVIDIA driver to the latest Game Ready / Studio Driver.
+
+Windows: Get from NVIDIA Drivers
+.
+
+Linux: Use sudo apt install nvidia-driver-535 (or latest stable).
+
+Verify with:
+```
+nvidia-smi
+```
+Should show your RTX XXXX and driver version.
+
+### 3. Install CUDA & cuDNN (Don’t do manually unless you want pain 😅)
+
+TensorFlow now bundles CUDA/cuDNN via pip wheels (no more messy manual installs).
+So you just need the right TensorFlow + NVIDIA driver.
+
+TensorFlow 2.16 (latest stable as of 2025) supports CUDA 12.x.
+
+RTX 4060 works fine with CUDA 12.x.
+
+### 4. Create Virtual Environment
+
+Using visual studio (recommended): my case i use windos laptop
+```
